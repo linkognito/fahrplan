@@ -1,0 +1,26 @@
+:root {
+  --color-blue: #274b7c;
+  --color-dark-blue: #29374c;
+  --color-dark-gray: #0d0d0d;
+
+  --spacing-l: 2rem;
+  --spacing-m: 1rem;
+  --spacing-s: .5rem;
+  --spacing-xs: .25rem;
+
+  --font-size-xl: 38pt;
+  --font-size-l: 22pt;
+  --font-size-m: 16pt;
+  --font-size-s: 12pt;
+}
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+
+  background-color: var(--color-dark-gray);
+}
