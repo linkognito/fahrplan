@@ -48,6 +48,8 @@
 
     min-height: 1rem;
 
+    font-weight: bold;
+
     background-color: var(--color-blue);
   }
 

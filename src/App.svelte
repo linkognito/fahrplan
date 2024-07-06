@@ -20,6 +20,6 @@
     max-height: 100%;
 
     color: white;
-    font-family: sans-serif;
+    font-family: "Josefin Sans", sans-serif;
   }
 </style>
