@@ -1,14 +1,15 @@
 <script lang="ts">
-    import * as dvb from "dvbjs";
     import type {IMonitor, IPoint} from "dvbjs";
+    import * as dvb from "dvbjs";
 
     import SubWindow from "./SubWindow.svelte";
     import {onMount} from "svelte";
     import ScrollableList from "./StopTimeTable.svelte";
-    import stopIcon from "../assets/haltestelle.svg";
+    import stopIconUrl from "../assets/haltestelle.svg";
 
     export let stopId: string;
     export let fallbackTitle: string;
+    export let departureCount: number = 5;
 
     let stopInfo: IPoint;
     let stopDepartures: IMonitor[];
@@ -17,7 +18,7 @@
         dvb.monitor(
             stopId,
             undefined,
-            5,
+            departureCount,
         ).then(data => {
             stopDepartures = data;
         });
@@ -37,6 +38,6 @@
 
 <SubWindow
     title="{stopInfo?.name ?? fallbackTitle}"
-    icon="{stopIcon}">
+    icon="{stopIconUrl}">
     <ScrollableList slot="body" departures="{stopDepartures ?? []}"/>
 </SubWindow>

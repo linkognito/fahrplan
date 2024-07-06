@@ -4,10 +4,10 @@
     export let departures: IMonitor[];
 </script>
 
-<table class="scrollable-list">
+<table class="timetable">
     {#each departures as departure}
-        <tr class="scrollable-list__item">
-            <td>
+        <tr class="timetable__item">
+            <td class="timetable__line">
                 {departure.line}
             </td>
             <td>
@@ -16,33 +16,45 @@
             <td>
                 {departure.platform?.type} {departure.platform?.name}
             </td>
-            <td style="text-align: right;">
+            <td class="timetable__arrival">
                 {departure.arrivalTimeRelative}
             </td>
         </tr>
     {/each}
 </table>
 
-<style>
-    .scrollable-list {
+<style lang="scss">
+    .timetable {
         width: 100%;
 
         border-collapse: collapse;
-    }
 
-    .scrollable-list__item td {
-        padding-block: var(--spacing-m);
-    }
+        &__item {
+            :nth-child(2n) {
+                background: var(--color-dark-blue);
+            }
 
-    .scrollable-list__item td:first-of-type {
-        padding-left: var(--spacing-m);
-    }
+            td {
+                padding-block: var(--spacing-m);
 
-    .scrollable-list__item td:last-of-type {
-        padding-right: var(--spacing-m);
-    }
+                &:first-of-type {
+                    padding-left: var(--spacing-m);
+                }
 
-    .scrollable-list__item:nth-child(2n) {
-        background: var(--color-dark-blue);
+                &:last-of-type {
+                    padding-right: var(--spacing-m);
+                }
+            }
+        }
+
+        &__line {
+            width: 4ch;
+        }
+
+        &__arrival {
+            width: 4ch;
+
+            text-align: right;
+        }
     }
 </style>
