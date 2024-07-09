@@ -30,7 +30,7 @@
         border-collapse: collapse;
 
         &__item {
-            :nth-child(2n) {
+            &:nth-child(2n) {
                 background: var(--color-dark-blue);
             }
 
